@@ -42,6 +42,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEH-lE-lhU">
                                 <state key="normal" title="Sign in / Sign up"/>
+                                <connections>
+                                    <action selector="signinupTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbZ-DL-Qjj"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MUQ-Wk-RLw">
                                 <frame key="frameInset" width="375" height="667"/>

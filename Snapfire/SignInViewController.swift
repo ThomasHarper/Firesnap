@@ -27,6 +27,10 @@ class SignInViewController: UIViewController {
         self.view.bringSubview(toFront: signinupButton)
     }
 
+    @IBAction func signinupTapped(_ sender: AnyObject) {
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
