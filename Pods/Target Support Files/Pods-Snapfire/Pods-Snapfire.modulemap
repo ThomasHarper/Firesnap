@@ -1,0 +1,6 @@
+framework module Pods_Snapfire {
+  umbrella header "Pods-Snapfire-umbrella.h"
+
+  export *
+  module * { export * }
+}
