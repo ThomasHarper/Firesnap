@@ -30,6 +30,7 @@
 		A6A4E7FF1DD2227A000326FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6A4E8011DD2227A000326FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A4E8071DD224AE000326FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A6D407151DD23FA20062B3BA /* Snapfire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snapfire.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		A6A4E7F41DD2227A000326FA /* Snapfire */ = {
 			isa = PBXGroup;
 			children = (
+				A6D407151DD23FA20062B3BA /* Snapfire.entitlements */,
 				A6A4E7F51DD2227A000326FA /* AppDelegate.swift */,
 				A6A4E7F71DD2227A000326FA /* SignInViewController.swift */,
 				A6A4E7F91DD2227A000326FA /* Main.storyboard */,
@@ -131,6 +133,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = F4RH2C5RMR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -345,6 +352,7 @@
 			baseConfigurationReference = 160E9358DB6922765AA7384A /* Pods-Snapfire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Snapfire/Snapfire.entitlements;
 				DEVELOPMENT_TEAM = F4RH2C5RMR;
 				INFOPLIST_FILE = Snapfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,6 +367,7 @@
 			baseConfigurationReference = 17645DA3E079C96DAAAEF6E4 /* Pods-Snapfire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Snapfire/Snapfire.entitlements;
 				DEVELOPMENT_TEAM = F4RH2C5RMR;
 				INFOPLIST_FILE = Snapfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

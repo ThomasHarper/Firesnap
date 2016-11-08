@@ -24,7 +24,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHo-tH-uDc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@test42.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHo-tH-uDc">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="QkX-So-GWx"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-G0-eDv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="purple" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-G0-eDv">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="yYh-97-syT"/>
                                 </constraints>
@@ -82,11 +82,49 @@
                         <outlet property="logoLabel" destination="Kn8-WV-YKF" id="8Ap-5t-v6M"/>
                         <outlet property="passwordTextField" destination="Pcz-G0-eDv" id="enp-Xu-F4J"/>
                         <outlet property="signinupButton" destination="PEH-lE-lhU" id="z7r-on-unA"/>
+                        <segue destination="OzQ-IE-byq" kind="presentation" identifier="signinsegue" id="Tym-ng-qPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Fq8-wS-NXu">
+            <objects>
+                <viewController id="thc-UB-SIx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oLq-Xr-KYb"/>
+                        <viewControllerLayoutGuide type="bottom" id="c29-0N-7ng"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GDs-a9-zf3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tNu-Eb-dWb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3DQ-LK-Cx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="36.431784107946029"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n6J-Ez-iAw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OzQ-IE-byq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vvt-jX-ewi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="thc-UB-SIx" kind="relationship" relationship="rootViewController" id="ejd-LQ-BBp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVC-R4-teJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1072.8" y="36.431784107946029"/>
         </scene>
     </scenes>
     <resources>

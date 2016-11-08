@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
 
@@ -26,8 +27,32 @@ class SignInViewController: UIViewController {
         self.view.bringSubview(toFront: passwordTextField)
         self.view.bringSubview(toFront: signinupButton)
     }
-
+    
+    // When tapped, we want the user to be signed in or signed up and then signed in
     @IBAction func signinupTapped(_ sender: AnyObject) {
+        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+            print("We tried to sign in")
+            if error != nil {
+                print("We have an error : \(error)")
+                
+                // Create the user if it doesn't exist
+                FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
+                    print("We tried to create an user")
+                    if  error != nil {
+                        print("We have an error : \(error)")
+                    } else {
+                        // If the user creation works, let's go to the list of snaps
+                        print("Created user successfully")
+                        self.performSegue(withIdentifier: "signinsegue", sender: nil)
+                    }
+                    
+                })
+            } else {
+                // If user has already an account and is loged in, let's go to the list of snaps
+                print("Signed in successfully")
+                self.performSegue(withIdentifier: "signinsegue", sender: nil)
+            }
+        })
     }
     
     
