@@ -14,6 +14,7 @@
 		A6A4E7FD1DD2227A000326FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A4E7FC1DD2227A000326FA /* Assets.xcassets */; };
 		A6A4E8001DD2227A000326FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A4E7FE1DD2227A000326FA /* LaunchScreen.storyboard */; };
 		A6A4E8081DD224AE000326FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A4E8071DD224AE000326FA /* GoogleService-Info.plist */; };
+		A6D407171DD242810062B3BA /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D407161DD242810062B3BA /* SnapsViewController.swift */; };
 		B362587DCC2146DFE8C5B3D2 /* Pods_Snapfire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68457704DC9A427981F99AF3 /* Pods_Snapfire.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		A6A4E8011DD2227A000326FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A4E8071DD224AE000326FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6D407151DD23FA20062B3BA /* Snapfire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snapfire.entitlements; sourceTree = "<group>"; };
+		A6D407161DD242810062B3BA /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				A6A4E7F51DD2227A000326FA /* AppDelegate.swift */,
 				A6A4E7F71DD2227A000326FA /* SignInViewController.swift */,
 				A6A4E7F91DD2227A000326FA /* Main.storyboard */,
+				A6D407161DD242810062B3BA /* SnapsViewController.swift */,
 				A6A4E7FC1DD2227A000326FA /* Assets.xcassets */,
 				A6A4E7FE1DD2227A000326FA /* LaunchScreen.storyboard */,
 				A6A4E8011DD2227A000326FA /* Info.plist */,
@@ -229,6 +232,7 @@
 			files = (
 				A6A4E7F81DD2227A000326FA /* SignInViewController.swift in Sources */,
 				A6A4E7F61DD2227A000326FA /* AppDelegate.swift in Sources */,
+				A6D407171DD242810062B3BA /* SnapsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
