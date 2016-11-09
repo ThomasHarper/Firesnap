@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignInViewController: UIViewController {
 
@@ -22,6 +23,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Managing z-index of the image and its blur effect
         self.view.bringSubview(toFront: logoLabel)
         self.view.bringSubview(toFront: emailTextField)
         self.view.bringSubview(toFront: passwordTextField)
@@ -41,6 +43,7 @@ class SignInViewController: UIViewController {
                     if  error != nil {
                         print("We have an error : \(error)")
                     } else {
+                        FIRDatabase.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email)
                         // If the user creation works, let's go to the list of snaps
                         print("Created user successfully")
                         self.performSegue(withIdentifier: "signinsegue", sender: nil)
