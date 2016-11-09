@@ -45,13 +45,17 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func nextTapped(_ sender: Any) {
+        // When uploading the image we don't want the user to hit next multiple times
         nextButton.isEnabled = false
         nextButton.setTitle("Uploading...", for: .normal)
         
+        // Let's get our Firebase storage path
         let imagesFolder = FIRStorage.storage().reference().child("images")
         
-        let imageData = UIImagePNGRepresentation(snapImage.image!)!
+        // Let's shrink our image to a lower quality in order to upload it faster
+        let imageData = UIImageJPEGRepresentation(snapImage.image!, 0.1)!
         
+        // uploading the image to Firebase
         imagesFolder.child("images.png").put(imageData, metadata: nil, completion: {(metadata, error) in
             print("We tried to upload")
             if error != nil {
