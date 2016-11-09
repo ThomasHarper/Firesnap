@@ -82,8 +82,8 @@
 		A6A4E7F41DD2227A000326FA /* Snapfire */ = {
 			isa = PBXGroup;
 			children = (
-				A6CA34C01DD393DD00A4FBCC /* Models */,
 				A6CA34BF1DD393A200A4FBCC /* ViewControllers */,
+				A6CA34C01DD393DD00A4FBCC /* Models */,
 				A6D407151DD23FA20062B3BA /* Snapfire.entitlements */,
 				A6A4E7F51DD2227A000326FA /* AppDelegate.swift */,
 				A6A4E7F91DD2227A000326FA /* Main.storyboard */,
