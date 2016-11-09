@@ -16,6 +16,7 @@
 		A6A4E8081DD224AE000326FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A4E8071DD224AE000326FA /* GoogleService-Info.plist */; };
 		A6CA34BA1DD3597E00A4FBCC /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CA34B91DD3597E00A4FBCC /* PictureViewController.swift */; };
 		A6CA34BC1DD38BF200A4FBCC /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CA34BB1DD38BF200A4FBCC /* SelectUserViewController.swift */; };
+		A6CA34BE1DD3934B00A4FBCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CA34BD1DD3934B00A4FBCC /* User.swift */; };
 		A6D407171DD242810062B3BA /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D407161DD242810062B3BA /* SnapsViewController.swift */; };
 		B362587DCC2146DFE8C5B3D2 /* Pods_Snapfire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68457704DC9A427981F99AF3 /* Pods_Snapfire.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		A6A4E8071DD224AE000326FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6CA34B91DD3597E00A4FBCC /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		A6CA34BB1DD38BF200A4FBCC /* SelectUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
+		A6CA34BD1DD3934B00A4FBCC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A6D407151DD23FA20062B3BA /* Snapfire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snapfire.entitlements; sourceTree = "<group>"; };
 		A6D407161DD242810062B3BA /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,12 +82,10 @@
 		A6A4E7F41DD2227A000326FA /* Snapfire */ = {
 			isa = PBXGroup;
 			children = (
+				A6CA34C01DD393DD00A4FBCC /* Models */,
+				A6CA34BF1DD393A200A4FBCC /* ViewControllers */,
 				A6D407151DD23FA20062B3BA /* Snapfire.entitlements */,
 				A6A4E7F51DD2227A000326FA /* AppDelegate.swift */,
-				A6A4E7F71DD2227A000326FA /* SignInViewController.swift */,
-				A6D407161DD242810062B3BA /* SnapsViewController.swift */,
-				A6CA34B91DD3597E00A4FBCC /* PictureViewController.swift */,
-				A6CA34BB1DD38BF200A4FBCC /* SelectUserViewController.swift */,
 				A6A4E7F91DD2227A000326FA /* Main.storyboard */,
 				A6A4E7FC1DD2227A000326FA /* Assets.xcassets */,
 				A6A4E7FE1DD2227A000326FA /* LaunchScreen.storyboard */,
@@ -94,6 +94,25 @@
 				A670DB801DD2316D00D3B537 /* background.jpg */,
 			);
 			path = Snapfire;
+			sourceTree = "<group>";
+		};
+		A6CA34BF1DD393A200A4FBCC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6A4E7F71DD2227A000326FA /* SignInViewController.swift */,
+				A6D407161DD242810062B3BA /* SnapsViewController.swift */,
+				A6CA34B91DD3597E00A4FBCC /* PictureViewController.swift */,
+				A6CA34BB1DD38BF200A4FBCC /* SelectUserViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A6CA34C01DD393DD00A4FBCC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6CA34BD1DD3934B00A4FBCC /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C50D81A411EA6CD600C78503 /* Pods */ = {
@@ -238,6 +257,7 @@
 			files = (
 				A6A4E7F81DD2227A000326FA /* SignInViewController.swift in Sources */,
 				A6CA34BA1DD3597E00A4FBCC /* PictureViewController.swift in Sources */,
+				A6CA34BE1DD3934B00A4FBCC /* User.swift in Sources */,
 				A6CA34BC1DD38BF200A4FBCC /* SelectUserViewController.swift in Sources */,
 				A6A4E7F61DD2227A000326FA /* AppDelegate.swift in Sources */,
 				A6D407171DD242810062B3BA /* SnapsViewController.swift in Sources */,
