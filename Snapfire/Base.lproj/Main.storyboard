@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="2884" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Select User View Controller-->
         <scene sceneID="WLG-aS-h6o">
             <objects>
-                <viewController id="Z1W-Iz-1wR" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Z1W-Iz-1wR" customClass="SelectUserViewController" customModule="Snapfire" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bBT-Zr-ezq"/>
                         <viewControllerLayoutGuide type="bottom" id="FCW-K7-TBS"/>
@@ -201,8 +201,23 @@
                     <view key="view" contentMode="scaleToFill" id="s9U-MR-Suc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-Vl-Ljq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FCW-K7-TBS" firstAttribute="top" secondItem="ZXJ-Vl-Ljq" secondAttribute="bottom" id="0HC-kF-k3I"/>
+                            <constraint firstAttribute="trailing" secondItem="ZXJ-Vl-Ljq" secondAttribute="trailing" id="APg-8m-Vvf"/>
+                            <constraint firstItem="ZXJ-Vl-Ljq" firstAttribute="top" secondItem="bBT-Zr-ezq" secondAttribute="bottom" id="BJF-dJ-M8r"/>
+                            <constraint firstItem="ZXJ-Vl-Ljq" firstAttribute="leading" secondItem="s9U-MR-Suc" secondAttribute="leading" id="F7j-Qx-TqE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZXJ-Vl-Ljq" id="S5H-BZ-Qu1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DO3-lb-RqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
