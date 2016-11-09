@@ -54,13 +54,15 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Let's shrink our image to a lower quality in order to upload it faster
         let imageData = UIImageJPEGRepresentation(snapImage.image!, 0.1)!
+
         
-        // uploading the image to Firebase
-        imagesFolder.child("images.png").put(imageData, metadata: nil, completion: {(metadata, error) in
+        // uploading the image to Firebase with a unique identifier from NSUUID
+        imagesFolder.child("\(NSUUID().uuidString).jpg").put(imageData, metadata: nil, completion: {(metadata, error) in
             print("We tried to upload")
             if error != nil {
                 print("Something went wrong uploading : \(error)")
             } else {
+                print(metadata?.downloadURL()! as Any!)
                 self.performSegue(withIdentifier: "selectusersegue", sender: nil)
             }
         })
