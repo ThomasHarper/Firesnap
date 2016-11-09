@@ -183,11 +183,30 @@
                         <outlet property="descriptionTextField" destination="ayK-bO-5U5" id="uGR-JU-Q0G"/>
                         <outlet property="nextButton" destination="lQB-0w-ozV" id="oSm-l3-Q5d"/>
                         <outlet property="snapImage" destination="hYA-6l-ayF" id="ljv-XY-UKw"/>
+                        <segue destination="Z1W-Iz-1wR" kind="show" identifier="selectusersegue" id="JGO-d3-Pta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSN-N7-gqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2884" y="36"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WLG-aS-h6o">
+            <objects>
+                <viewController id="Z1W-Iz-1wR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bBT-Zr-ezq"/>
+                        <viewControllerLayoutGuide type="bottom" id="FCW-K7-TBS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s9U-MR-Suc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DO3-lb-RqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681" y="37"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n6J-Ez-iAw">

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -28,6 +29,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = false
         
+        
         // Let's take the image from the picker
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         snapImage.image = image
@@ -43,6 +45,26 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func nextTapped(_ sender: Any) {
+        nextButton.isEnabled = false
+        nextButton.setTitle("Uploading...", for: .normal)
+        
+        let imagesFolder = FIRStorage.storage().reference().child("images")
+        
+        let imageData = UIImagePNGRepresentation(snapImage.image!)!
+        
+        imagesFolder.child("images.png").put(imageData, metadata: nil, completion: {(metadata, error) in
+            print("We tried to upload")
+            if error != nil {
+                print("Something went wrong uploading : \(error)")
+            } else {
+                self.performSegue(withIdentifier: "selectusersegue", sender: nil)
+            }
+        })
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     override func didReceiveMemoryWarning() {
