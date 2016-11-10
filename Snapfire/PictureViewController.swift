@@ -23,14 +23,13 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        // Disabling next button in order to prevent people sending snap without a picture
+        nextButton.isEnabled = false
+        nextButton.setTitle("Take a picture first!", for: .normal)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Where do we want our photos from and we don't want edited photos
-        imagePicker.sourceType = .savedPhotosAlbum
-        imagePicker.allowsEditing = false
-        
-        
         // Let's take the image from the picker
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         snapImage.image = image
@@ -38,11 +37,21 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         // When the user picks a picture, disabling the background color of the UIImageView
         snapImage.backgroundColor = UIColor.clear
         
+        // Enabling the next button because there's now a picture
+        nextButton.isEnabled = true
+        nextButton.setTitle("Next", for: .normal)
+        
         // Closing the image picker
         imagePicker.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
+        // Where do we want our photos from and we don't want edited photos
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.cameraCaptureMode = .photo
+        imagePicker.modalPresentationStyle = .fullScreen
+        
         present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func nextTapped(_ sender: Any) {
