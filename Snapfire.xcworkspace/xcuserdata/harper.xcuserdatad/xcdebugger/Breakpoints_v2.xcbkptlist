@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Snapfire/PictureViewController.swift"
-            timestampString = "500487966.648131"
+            timestampString = "500489976.2307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "nextTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
