@@ -15,6 +15,8 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     ///////////////// PROPERTIES ///////////////////
     var users : [User] = []
+    var snapImageURL = ""
+    var snapDescription = ""
     
     
     override func viewDidLoad() {
@@ -49,7 +51,7 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let snap = ["email":user.email, "description":"hello", "imageURL":"www.google.com"]
+        let snap = ["email":user.email, "description":snapDescription, "imageURL":snapImageURL]
         
         FIRDatabase.database().reference().child("users").child(user.uid!).child("snaps").childByAutoId().setValue(snap)
     }

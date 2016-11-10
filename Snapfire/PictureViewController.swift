@@ -62,15 +62,21 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
             if error != nil {
                 print("Something went wrong uploading : \(error)")
             } else {
-                print(metadata?.downloadURL()! as Any!)
-                self.performSegue(withIdentifier: "selectusersegue", sender: nil)
+                // let's get the URL of the image uploaded and pass it through the sender
+                let snapImageURL = metadata?.downloadURL()!.absoluteString
+                // print(metadata?.downloadURL()! as Any!)
+                self.performSegue(withIdentifier: "selectusersegue", sender: snapImageURL)
             }
         })
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! SelectUserViewController
         
+        // The sender comes from the perform segue
+        nextVC.snapImageURL = sender as! String
+        nextVC.snapDescription = descriptionTextField.text!
     }
     
     override func didReceiveMemoryWarning() {
