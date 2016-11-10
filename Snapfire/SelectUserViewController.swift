@@ -47,6 +47,13 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let snap = ["email":user.email, "description":"hello", "imageURL":"www.google.com"]
+        
+        FIRDatabase.database().reference().child("users").child(user.uid!).child("snaps").childByAutoId().setValue(snap)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
