@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnapFire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn8-WV-YKF">
-                                <rect key="frame" x="73.5" y="95" width="228" height="71"/>
+                                <rect key="frame" x="74" y="95" width="228" height="71"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
         <!--Snaps View Controller-->
         <scene sceneID="Fq8-wS-NXu">
             <objects>
-                <viewController id="thc-UB-SIx" customClass="SnapsViewController" customModule="Snapfire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="thc-UB-SIx" customClass="SnapsViewController" customModule="Snapfire" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oLq-Xr-KYb"/>
                         <viewControllerLayoutGuide type="bottom" id="c29-0N-7ng"/>
@@ -108,7 +108,19 @@
                     <view key="view" contentMode="scaleToFill" id="GDs-a9-zf3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-SD-bag">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Co-SD-bag" firstAttribute="leading" secondItem="GDs-a9-zf3" secondAttribute="leading" id="mBx-lJ-FB1"/>
+                            <constraint firstItem="3Co-SD-bag" firstAttribute="top" secondItem="oLq-Xr-KYb" secondAttribute="bottom" id="pcd-oF-D6j"/>
+                            <constraint firstItem="c29-0N-7ng" firstAttribute="top" secondItem="3Co-SD-bag" secondAttribute="bottom" id="u6t-vO-XbI"/>
+                            <constraint firstAttribute="trailing" secondItem="3Co-SD-bag" secondAttribute="trailing" id="zt0-jS-yaj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tNu-Eb-dWb">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="gy7-uH-Tqk">
@@ -122,10 +134,56 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="3Co-SD-bag" id="0Nq-do-q88"/>
+                        <segue destination="Hn5-yD-cXQ" kind="show" identifier="showsnap" id="rnS-dH-4ht"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DQ-LK-Cx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="36.431784107946029"/>
+            <point key="canvasLocation" x="2012" y="36"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="0aR-oV-c6n">
+            <objects>
+                <viewController id="Hn5-yD-cXQ" customClass="ViewSnapViewController" customModule="Snapfire" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qnp-ib-2uk"/>
+                        <viewControllerLayoutGuide type="bottom" id="mUh-0b-7eP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kiQ-47-k1H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is me saying hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sky-Ac-5NR">
+                                <rect key="frame" x="21" y="626" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3o8-5U-QTR">
+                                <rect key="frame" x="26" y="74" width="323" height="542"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3o8-5U-QTR" secondAttribute="trailing" constant="10" id="2SG-FD-q0w"/>
+                            <constraint firstItem="Sky-Ac-5NR" firstAttribute="leading" secondItem="kiQ-47-k1H" secondAttribute="leadingMargin" constant="5" id="Cr3-dB-nWa"/>
+                            <constraint firstItem="Sky-Ac-5NR" firstAttribute="top" secondItem="3o8-5U-QTR" secondAttribute="bottom" constant="10" id="Scs-Yx-1i3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sky-Ac-5NR" secondAttribute="trailing" constant="5" id="XUe-rS-g7P"/>
+                            <constraint firstItem="mUh-0b-7eP" firstAttribute="top" secondItem="Sky-Ac-5NR" secondAttribute="bottom" constant="20" id="ZLO-Fn-bTV"/>
+                            <constraint firstItem="3o8-5U-QTR" firstAttribute="leading" secondItem="kiQ-47-k1H" secondAttribute="leadingMargin" constant="10" id="iEH-DN-kiP"/>
+                            <constraint firstItem="3o8-5U-QTR" firstAttribute="top" secondItem="Qnp-ib-2uk" secondAttribute="bottom" constant="10" id="zR9-Tq-Hb3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="snapDescriptionLabel" destination="Sky-Ac-5NR" id="giE-dD-vGN"/>
+                        <outlet property="snapImage" destination="3o8-5U-QTR" id="U9I-rh-qqO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XBj-D3-abW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="764"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="CYp-bW-Oal">

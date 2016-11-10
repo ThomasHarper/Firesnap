@@ -25,6 +25,7 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        // Pulling snaps from Firebase database
         FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             let user = User()
             let snapshotDictionnary = snapshot.value as? NSDictionary
@@ -44,6 +45,7 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = UITableViewCell()
         let user = users[indexPath.row]
         
+        // Displaying the emails of the possible recipients
         cell.textLabel?.text = user.email
         
         return cell
@@ -51,9 +53,13 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let snap = ["email":user.email, "description":snapDescription, "imageURL":snapImageURL]
+        let snap = ["from":user.email, "description":snapDescription, "imageURL":snapImageURL]
         
+        // Sending the snap to the recepient
         FIRDatabase.database().reference().child("users").child(user.uid!).child("snaps").childByAutoId().setValue(snap)
+        
+        // Let's pop back to the list of snaps when the user just sent one
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {
