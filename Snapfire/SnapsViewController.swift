@@ -29,10 +29,16 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             snap.imageURL = (snapshotDictionnary!["imageURL"] as? String)!
             snap.from = (snapshotDictionnary!["from"] as? String)!
             snap.description = (snapshotDictionnary!["description"] as? String)!
+            snap.key = snapshot.key
             
             self.snaps.append(snap)
             self.tableView.reloadData()
             })
+        
+        // Reloading the tableView when the user deletes a snap
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser!.uid)!).child("snaps").observe(FIRDataEventType.childRemoved, with: {(snapshot) in
+           
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
