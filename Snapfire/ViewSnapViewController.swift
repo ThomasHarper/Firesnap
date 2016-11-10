@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SDWebImage
+import FirebaseAuth
+import FirebaseDatabase
 
 class ViewSnapViewController: UIViewController {
 
@@ -19,7 +22,14 @@ class ViewSnapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Showing the snap
         snapDescriptionLabel.text = snap.description
+        snapImage.sd_setImage(with: URL(string: snap.imageURL))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Removing the current snap when the user goes back to previous view controller 
+        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("snaps").child(snap.key).removeValue()
     }
 
     override func didReceiveMemoryWarning() {
