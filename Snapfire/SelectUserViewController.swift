@@ -17,6 +17,7 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
     var users : [User] = []
     var snapImageURL = ""
     var snapDescription = ""
+    var uuid = ""
     
     
     override func viewDidLoad() {
@@ -53,9 +54,9 @@ class SelectUserViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let snap = ["from":user.email, "description":snapDescription, "imageURL":snapImageURL]
+        let snap = ["from":user.email, "description":snapDescription, "imageURL":snapImageURL, "uuid":uuid]
         
-        // Sending the snap to the recepient
+        // Sending the snap to the recepient and saving it to Firebase database
         FIRDatabase.database().reference().child("users").child(user.uid!).child("snaps").childByAutoId().setValue(snap)
         
         // Let's pop back to the list of snaps when the user just sent one

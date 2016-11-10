@@ -17,6 +17,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var nextButton: UIButton!
     ///////////////// PROPERTIES ///////////////////
     var imagePicker = UIImagePickerController()
+    var uuid = NSUUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         
         // uploading the image to Firebase with a unique identifier from NSUUID
-        imagesFolder.child("\(NSUUID().uuidString).jpg").put(imageData, metadata: nil, completion: {(metadata, error) in
+        imagesFolder.child("\(uuid).jpg").put(imageData, metadata: nil, completion: {(metadata, error) in
             print("We tried to upload")
             if error != nil {
                 print("Something went wrong uploading : \(error)")
@@ -77,6 +78,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         // The sender comes from the perform segue
         nextVC.snapImageURL = sender as! String
         nextVC.snapDescription = descriptionTextField.text!
+        nextVC.uuid = uuid
     }
     
     override func didReceiveMemoryWarning() {

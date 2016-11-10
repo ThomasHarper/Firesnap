@@ -30,6 +30,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             snap.from = (snapshotDictionnary!["from"] as? String)!
             snap.description = (snapshotDictionnary!["description"] as? String)!
             snap.key = snapshot.key
+            snap.uuid = (snapshotDictionnary!["uuid"] as? String)!
             
             self.snaps.append(snap)
             self.tableView.reloadData()

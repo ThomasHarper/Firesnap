@@ -13,4 +13,5 @@ class Snap {
     var description = ""
     var from = ""
     var key = ""
+    var uuid = ""
 }
