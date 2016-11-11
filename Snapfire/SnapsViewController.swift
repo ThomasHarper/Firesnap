@@ -91,6 +91,8 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     @IBAction func logoutTapped(_ sender: AnyObject) {
+        try! FIRAuth.auth()!.signOut()
+        
         // When the user taps on logout we dismiss the current view controller 
         // and he goes back to signin
         dismiss(animated: true, completion: nil)
