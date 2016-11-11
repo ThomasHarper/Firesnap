@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
 
     /////////////////// OUTLETS ////////////////////
     @IBOutlet weak var logoLabel: UILabel!
@@ -28,6 +28,8 @@ class SignInViewController: UIViewController {
         self.view.bringSubview(toFront: emailTextField)
         self.view.bringSubview(toFront: passwordTextField)
         self.view.bringSubview(toFront: signinupButton)
+        
+        passwordTextField.delegate = self
     }
     
     // When tapped, we want the user to be signed in or signed up and then signed in
@@ -58,6 +60,12 @@ class SignInViewController: UIViewController {
         })
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // releasing the focus on the textField and hiding the keyboard
+        passwordTextField.resignFirstResponder()
+        self.signinupTapped(self)
+        return true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
