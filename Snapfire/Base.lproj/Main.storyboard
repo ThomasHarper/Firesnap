@@ -35,7 +35,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-G0-eDv">
                                 <rect key="frame" x="75" y="256" width="225" height="30"/>
@@ -44,7 +44,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEH-lE-lhU">
                                 <rect key="frame" x="132" y="316" width="111" height="30"/>
@@ -53,6 +53,12 @@
                                     <action selector="signinupTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbZ-DL-Qjj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRr-bq-8Ib">
+                                <rect key="frame" x="166" y="141" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MUQ-Wk-RLw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -71,6 +77,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kn8-WV-YKF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="1EZ-hG-IEW"/>
+                            <constraint firstItem="IRr-bq-8Ib" firstAttribute="top" secondItem="Kn8-WV-YKF" secondAttribute="bottom" constant="20" id="3YS-je-pIn"/>
                             <constraint firstItem="vHo-tH-uDc" firstAttribute="top" secondItem="Kn8-WV-YKF" secondAttribute="bottom" constant="80" id="I6V-Xj-dXV"/>
                             <constraint firstItem="MUQ-Wk-RLw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IZU-5l-B9l"/>
                             <constraint firstItem="vHo-tH-uDc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NFe-Ia-Xgq"/>
@@ -78,6 +85,7 @@
                             <constraint firstItem="MUQ-Wk-RLw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="P67-5n-MaR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2AU-Tp-rO8" secondAttribute="bottom" id="UR7-u9-jIX"/>
                             <constraint firstItem="PEH-lE-lhU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VCp-nk-fxS"/>
+                            <constraint firstItem="IRr-bq-8Ib" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WQj-tN-NBf"/>
                             <constraint firstItem="Kn8-WV-YKF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wqa-Fu-1fC"/>
                             <constraint firstItem="2AU-Tp-rO8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ag5-uv-43J"/>
                             <constraint firstItem="PEH-lE-lhU" firstAttribute="top" secondItem="Pcz-G0-eDv" secondAttribute="bottom" constant="30" id="gFt-hg-Jsd"/>
@@ -91,6 +99,7 @@
                     <connections>
                         <outlet property="backgroundImage" destination="MUQ-Wk-RLw" id="jdE-dn-gm4"/>
                         <outlet property="emailTextField" destination="vHo-tH-uDc" id="OCx-n1-JRj"/>
+                        <outlet property="errorMessage" destination="IRr-bq-8Ib" id="YEo-rr-Apu"/>
                         <outlet property="logoLabel" destination="Kn8-WV-YKF" id="8Ap-5t-v6M"/>
                         <outlet property="passwordTextField" destination="Pcz-G0-eDv" id="enp-Xu-F4J"/>
                         <outlet property="signinupButton" destination="PEH-lE-lhU" id="z7r-on-unA"/>

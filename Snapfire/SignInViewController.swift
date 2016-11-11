@@ -18,7 +18,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var signinupButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
     ///////////////// PROPERTIES ///////////////////
+    var errors = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +30,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.view.bringSubview(toFront: emailTextField)
         self.view.bringSubview(toFront: passwordTextField)
         self.view.bringSubview(toFront: signinupButton)
+        self.view.bringSubview(toFront: errorMessage)
         
+        // Setting the delegate of UITextFieldDelegate in order to tap on "Done" (keyboard)
         passwordTextField.delegate = self
+        
+        // We hide the error label as long as we've got no errors to display
+        errorMessage.isHidden = true
     }
     
     // When tapped, we want the user to be signed in or signed up and then signed in
@@ -37,7 +44,30 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             print("We tried to sign in")
             if error != nil {
-                print("We have an error : \(error)")
+                switch(error!._code) {
+                case FIRAuthErrorCode.errorCodeInvalidEmail.rawValue :
+                    let message = "Please enter a correct email"
+                    self.errorMessage.text = message
+                    self.errorMessage.isHidden = false
+                case FIRAuthErrorCode.errorCodeWeakPassword.rawValue :
+                    let message = "Password is too weak, must be 6 characters at least"
+                    self.errorMessage.text = message
+                    self.errorMessage.isHidden = false
+                case FIRAuthErrorCode.errorCodeWrongPassword.rawValue :
+                    let message = "Wrong password"
+                    self.errorMessage.text = message
+                    self.errorMessage.isHidden = false
+                case FIRAuthErrorCode.errorCodeCredentialAlreadyInUse.rawValue :
+                    let message = "Someone must be already connected to your account"
+                    self.errorMessage.text = message
+                    self.errorMessage.isHidden = false
+                default :
+                    let message = "Something went wrong, contact the administrator"
+                    self.errorMessage.text = message
+                    self.errorMessage.isHidden = false
+                    print("We have an error : \(error)")
+                }
+                
                 
                 // Create the user if it doesn't exist
                 FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
