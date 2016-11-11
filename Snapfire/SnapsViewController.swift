@@ -16,6 +16,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     ///////////////// PROPERTIES ///////////////////
     var snaps : [Snap] = []
+    var hasSnaps = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +61,12 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        // Checking if the user has snaps
         if snaps.count == 0 {
             cell.textLabel?.text = "YOU HAVE NO SNAPS 😭"
             cell.textLabel?.textAlignment = NSTextAlignment.center
         } else {
+            self.hasSnaps = true
             let snap = snaps[indexPath.row]
             cell.textLabel?.text = snap.from
         }
@@ -71,9 +74,12 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let snap = snaps[indexPath.row]
-        // Let's go to the snap that the user selected
-        performSegue(withIdentifier: "showsnap", sender: snap)
+        // Perform segue only if the user hasSnaps
+        if  hasSnaps {
+            let snap = snaps[indexPath.row]
+            // Let's go to the snap that the user selected
+            performSegue(withIdentifier: "showsnap", sender: snap)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
