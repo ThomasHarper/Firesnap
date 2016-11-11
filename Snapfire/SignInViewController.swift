@@ -46,25 +46,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             if error != nil {
                 switch(error!._code) {
                 case FIRAuthErrorCode.errorCodeInvalidEmail.rawValue :
-                    let message = "Please enter a correct email"
-                    self.errorMessage.text = message
+                    self.errorMessage.text = error!.localizedDescription
                     self.errorMessage.isHidden = false
                 case FIRAuthErrorCode.errorCodeWeakPassword.rawValue :
-                    let message = "Password is too weak, must be 6 characters at least"
-                    self.errorMessage.text = message
+                    self.errorMessage.text = error!.localizedDescription
                     self.errorMessage.isHidden = false
                 case FIRAuthErrorCode.errorCodeWrongPassword.rawValue :
-                    let message = "Wrong password"
-                    self.errorMessage.text = message
+                    self.errorMessage.text = error!.localizedDescription
                     self.errorMessage.isHidden = false
                 case FIRAuthErrorCode.errorCodeCredentialAlreadyInUse.rawValue :
-                    let message = "Someone must be already connected to your account"
-                    self.errorMessage.text = message
+                    self.errorMessage.text = error!.localizedDescription
                     self.errorMessage.isHidden = false
                 default :
-                    let message = "Something went wrong, contact the administrator"
-                    self.errorMessage.text = message
-                    self.errorMessage.isHidden = false
                     print("We have an error : \(error)")
                 }
                 
