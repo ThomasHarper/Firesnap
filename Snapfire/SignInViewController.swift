@@ -36,7 +36,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         
         // We hide the error label as long as we've got no errors to display
+        // and setting the textfield number of lines to two
         errorMessage.isHidden = true
+        errorMessage.numberOfLines = 2
     }
     
     // When tapped, we want the user to be signed in or signed up and then signed in
@@ -44,29 +46,24 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             print("We tried to sign in")
             if error != nil {
-                switch(error!._code) {
-                case FIRAuthErrorCode.errorCodeInvalidEmail.rawValue :
-                    self.errorMessage.text = error!.localizedDescription
-                    self.errorMessage.isHidden = false
-                case FIRAuthErrorCode.errorCodeWeakPassword.rawValue :
-                    self.errorMessage.text = error!.localizedDescription
-                    self.errorMessage.isHidden = false
-                case FIRAuthErrorCode.errorCodeWrongPassword.rawValue :
-                    self.errorMessage.text = error!.localizedDescription
-                    self.errorMessage.isHidden = false
-                case FIRAuthErrorCode.errorCodeCredentialAlreadyInUse.rawValue :
-                    self.errorMessage.text = error!.localizedDescription
-                    self.errorMessage.isHidden = false
-                default :
-                    print("We have an error : \(error)")
-                }
-                
+                self.errorMessage.text = error!.localizedDescription
+                self.errorMessage.isHidden = false
                 
                 // Create the user if it doesn't exist
                 FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
                     print("We tried to create an user")
                     if  error != nil {
-                        print("We have an error : \(error)")
+                        // Code 17999 corresponds to a field not filled (e.g password field)
+                        // This isn't neat but we have to because of the auto account creation
+                        if error!._code == 17999 {
+                            self.errorMessage.text = "Please fill both texfields"
+                            self.errorMessage.isHidden = false
+                        } else {
+                            print(error!._code)
+                            self.errorMessage.text = error!.localizedDescription
+                            self.errorMessage.isHidden = false
+                        }
+                        
                     } else {
                         FIRDatabase.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email)
                         // If the user creation works, let's go to the list of snaps
